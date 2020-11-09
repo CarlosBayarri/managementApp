@@ -25,3 +25,13 @@
 #container a {
   text-decoration: none;
 }
+
+ion-slides {
+  height: 150px;
+  width: 100%;
+  padding: 5px;
+  ion-card {
+    height: 100%;
+    width: 100%;
+  }
+}

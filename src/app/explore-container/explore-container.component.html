@@ -4,22 +4,39 @@
 </div>
 
 <ion-content class="ion-padding">
-  <div>
-    <p>Tareas</p>
-    <ion-buttons end>
-      <ion-button [routerLink]="['/add-task']">
-       <ion-icon name="add"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </div>
-  <div>
-    <ion-list>
-      <ion-list-header>Tasks</ion-list-header>
+  
+    <ion-item lines="none">
+        <ion-label>
+          Task
+        </ion-label>
+        <ion-icon slot="end" name="arrow-forward"  [routerLink]="['/view-task']"></ion-icon>
+    </ion-item>
+
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let task of tasks$ | async" (click)="goToTask(task)">
+        <ion-card>
+
+          <ion-item lines="none">
+            <ion-icon name="create" slot="start" [color]="task.type === '1' ? 'primary' : 'danger'"></ion-icon>
+            <ion-label>{{task.title}}</ion-label>
+          </ion-item>
+        
+          <ion-card-content style="text-align: left;">
+
+            {{task.description}}
+            
+          </ion-card-content>
+
+          <ion-progress-bar [value]="calculateDateToEnd(task)" style="position: absolute;bottom: 0;left: 0;"></ion-progress-bar>
+
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <!--<ion-list>
       <ion-item *ngFor="let task of tasks$ | async" detail-push navPush="EditTaskPage" [navParams]="{task: task}">
-  
         {{task.title}}
-  
       </ion-item>
-    </ion-list>
-  </div>
-</ion-content>
+    </ion-list>-->
+
+  </ion-content>

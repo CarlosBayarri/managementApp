@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let task of tasks$ | async | slice:0:10" (click)="goToTask(task)">
+
+      <ion-item lines="none">
+        <ion-icon name="create" slot="start" [color]="task.type === '1' ? 'primary' : 'danger'"></ion-icon>
+        <ion-label>{{task.title}}</ion-label>
+      </ion-item>
+    
+      <ion-card-content style="text-align: left;">
+
+        {{task.description}}
+        
+      </ion-card-content>
+
+      <ion-progress-bar [value]="calculateDateToEnd(task)" style="position: absolute;bottom: 0;left: 0;"></ion-progress-bar>
+
+    </ion-card>
+
+</ion-content>

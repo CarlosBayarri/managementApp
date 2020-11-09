@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'edit-task',
     loadChildren: () => import('./edit-task/edit-task.module').then( m => m.EditTaskPageModule)
+  },
+  {
+    path: 'view-task',
+    loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
   }
 ];
 @NgModule({

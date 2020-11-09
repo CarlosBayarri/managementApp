@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { MenuController, NavController, NavParams } from '@ionic/angular';
 import { Task } from '../interfaces/task.interface';
 import { TaskService } from '../services/task.service';
 
@@ -12,9 +12,10 @@ export class EditTaskPage implements OnInit {
 
   public task: Task;
 
-  constructor(public nacVtrl: NavController, public navParams: NavParams, private taskService: TaskService) { }
+  constructor(public nacVtrl: NavController, public navParams: NavParams, private taskService: TaskService, public menu: MenuController) { }
 
   saveTask(task) {
+    task.date_to_end = task.date_to_end.split('T')[0];
     this.taskService.editTask(task).then(res => {
       this.nacVtrl.navigateRoot('Home');
     })
@@ -28,9 +29,10 @@ export class EditTaskPage implements OnInit {
   }
 
   ngOnInit() {
+    this.task = this.taskService.getCurrentTask();
   }
   ionViewDidLoad() {
-    this.task = this.navParams.get('task');
+
   }
 
 }

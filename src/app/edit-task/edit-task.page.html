@@ -1,23 +1,58 @@
 <ion-header>
+
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{task?.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="settings" slot="start" (click)="menu.open('optionsTask')"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-router-outlet id="optionsTask"></ion-router-outlet>
+
+<ion-menu side="end" menuId="optionsTask" contentId="optionsTask">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="removeTask(task)">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        <ion-label>Remove</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content padding *ngIf="task">
+
   <ion-item>
-    <ion-label>Títle</ion-label>
+    <ion-label>Title</ion-label>
     <ion-input type="text" placeholder="Title..." [(ngModel)]="task.title"></ion-input>
   </ion-item>
-
-
   <ion-item>
     <ion-label>Description</ion-label>
     <ion-input type="text" placeholder="Description..." [(ngModel)]="task.description"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label>Date to end</ion-label>
+    <ion-datetime [(ngModel)]="task.date_to_end"></ion-datetime>
+</ion-item>
 
-  <button ion-button block clear (click)="saveTask(task)">Save</button>
-
-  <button ion-button block clear color="danger" (click)="removeTask(task)">Remove</button>
+<ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select value="notifications" interface="action-sheet" [(ngModel)]="task.type">
+    <ion-select-option value="1">Normal</ion-select-option>
+    <ion-select-option value="2">Important</ion-select-option>
+  </ion-select>
+</ion-item>
+  <ion-button expand="full" clear (click)="saveTask(task)">Save</ion-button>
 
 </ion-content>
+

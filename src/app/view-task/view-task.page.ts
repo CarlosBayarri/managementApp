@@ -1,25 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Task } from '../interfaces/task.interface';
 import { TaskService } from '../services/task.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-explore-container',
-  templateUrl: './explore-container.component.html',
-  styleUrls: ['./explore-container.component.scss'],
+  selector: 'app-view-task',
+  templateUrl: './view-task.page.html',
+  styleUrls: ['./view-task.page.scss'],
 })
-export class ExploreContainerComponent implements OnInit {
-  @Input() name: string;
+export class ViewTaskPage implements OnInit {
 
   tasks$: Observable<Task[]>;
-  slideOpts = {
-    initialSlide: 0,
-    slidesPerView: 1.25,
-    speed: 400,
-    pagination: false,
-    scrollbar: false
-  };
 
   constructor(private taskService: TaskService, private router: Router) { 
     this.tasks$ = this.taskService.getTasks();

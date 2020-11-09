@@ -2,3 +2,24 @@
   <strong>{{ name }}</strong>
   <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
 </div>
+
+<ion-content class="ion-padding">
+  <div>
+    <p>Tareas</p>
+    <ion-buttons end>
+      <ion-button [routerLink]="['/add-task']">
+       <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <div>
+    <ion-list>
+      <ion-list-header>Tasks</ion-list-header>
+      <ion-item *ngFor="let task of tasks$ | async" detail-push navPush="EditTaskPage" [navParams]="{task: task}">
+  
+        {{task.title}}
+  
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

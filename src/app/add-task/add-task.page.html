@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AddTask</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Títle</ion-label>
+    <ion-input type="text" placeholder="Title..." [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Description..." [(ngModel)]="task.description"></ion-input>
+  </ion-item>
+
+  {{ task | json}}
+  
+  <button ion-button block clear (click)="addTask(task)">Add</button>
+</ion-content>

@@ -19,7 +19,7 @@ export class TabsPage {
         text: 'Event',
         icon: 'calendar',
         handler: () => {
-          console.log('Delete clicked');
+          this.router.navigate(['/add-event'])
         }
       }, {
         text: 'Task',

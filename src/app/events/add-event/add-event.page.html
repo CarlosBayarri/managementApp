@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Títle</ion-label>
+    <ion-input type="text" placeholder="Write the title here..." [(ngModel)]="event.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Write the description here..." [(ngModel)]="event.description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime [(ngModel)]="event.date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select value="notifications" interface="action-sheet" [(ngModel)]="event.type">
+      <ion-select-option value="1">Common</ion-select-option>
+      <ion-select-option value="2">Meeting</ion-select-option>
+      <ion-select-option value="3">Citation</ion-select-option>
+      <ion-select-option value="4">Visit</ion-select-option>
+      <ion-select-option value="5">Reminder</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-button expand="full" clear (click)="addEvent(event)">Add</ion-button>
+
+</ion-content>

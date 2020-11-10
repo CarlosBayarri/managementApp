@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{event?.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="settings" slot="start" (click)="menu.open('optionsEvent')"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-router-outlet id="optionsEvent"></ion-router-outlet>
+
+<ion-menu side="end" menuId="optionsEvent" contentId="optionsEvent">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="removeEvent(event)">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        <ion-label>Remove</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content padding *ngIf="event">
+
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input type="text" placeholder="Title..." [(ngModel)]="event.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Description..." [(ngModel)]="event.description"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime [(ngModel)]="event.date"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select value="notifications" interface="action-sheet" [(ngModel)]="event.type">
+      <ion-select-option value="1">Common</ion-select-option>
+      <ion-select-option value="2">Meeting</ion-select-option>
+      <ion-select-option value="3">Citation</ion-select-option>
+      <ion-select-option value="4">Visit</ion-select-option>
+      <ion-select-option value="5">Reminder</ion-select-option>
+  </ion-select>
+</ion-item>
+  <ion-button expand="full" clear (click)="saveEvent(event)">Save</ion-button>
+
+</ion-content>
+

@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Task } from '../interfaces/task.interface';
 import { TaskService } from '../services/task.service';
 import { Router } from '@angular/router';
+import { Event } from '../interfaces/event.interface';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -13,6 +15,7 @@ export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
 
   tasks$: Observable<Task[]>;
+  events$: Observable<Event[]>;
   slideOpts = {
     initialSlide: 0,
     slidesPerView: 1.25,
@@ -21,8 +24,9 @@ export class ExploreContainerComponent implements OnInit {
     scrollbar: false
   };
 
-  constructor(private taskService: TaskService, private router: Router) { 
+  constructor(private taskService: TaskService, private eventService: EventService, private router: Router) { 
     this.tasks$ = this.taskService.getTasks();
+    this.events$ = this.eventService.getEvents();
   }
 
   calculateDateToEnd(task) {
@@ -50,6 +54,10 @@ export class ExploreContainerComponent implements OnInit {
   goToTask(task) {
     this.taskService.currentTask = task;
     this.router.navigate(['/edit-task'])
+  }
+  goToEvent(event) {
+    this.eventService.currentEvent = event;
+    this.router.navigate(['/edit-event'])
   }
   ngOnInit() {}
 

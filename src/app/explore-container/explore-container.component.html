@@ -1,18 +1,14 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-</div>
 
 <ion-content class="ion-padding">
   
     <ion-item lines="none">
         <ion-label>
-          Task
+          Tasks
         </ion-label>
         <ion-icon slot="end" name="arrow-forward"  [routerLink]="['/view-task']"></ion-icon>
     </ion-item>
 
-    <ion-slides pager="true" [options]="slideOpts">
+    <ion-slides pager="true" [options]="slideOpts" *ngIf="(tasks$ | async); else ngNoTasksTemplate">
       <ion-slide *ngFor="let task of tasks$ | async" (click)="goToTask(task)">
         <ion-card>
 
@@ -23,7 +19,7 @@
         
           <ion-card-content style="text-align: left;">
 
-            {{task.description}}
+            <p>{{task.description}}</p>
             
           </ion-card-content>
 
@@ -33,10 +29,40 @@
       </ion-slide>
     </ion-slides>
 
-    <!--<ion-list>
-      <ion-item *ngFor="let task of tasks$ | async" detail-push navPush="EditTaskPage" [navParams]="{task: task}">
-        {{task.title}}
-      </ion-item>
-    </ion-list>-->
+    <ion-item lines="none">
+      <ion-label>
+        Events
+      </ion-label>
+      <ion-icon slot="end" name="arrow-forward"  [routerLink]="['/view-event']"></ion-icon>
+  </ion-item>
 
-  </ion-content>
+  <ion-slides pager="true" [options]="slideOpts" *ngIf="(events$ | async); else ngNoEventsTemplate">
+    <ion-slide *ngFor="let event of events$ | async" (click)="goToEvent(event)">
+      <ion-card>
+
+        <ion-item lines="none">
+          <ion-icon name="create" slot="start"></ion-icon>
+          <ion-label>{{event.title}}</ion-label>
+        </ion-item>
+      
+        <ion-card-content style="text-align: left;">
+          <p>{{event.type | EventTypePipe}}</p>
+          <p>{{event.date | date}}</p>
+
+          <p>{{event.description}}</p>
+          
+        </ion-card-content>
+
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ng-template #ngNoTasksTemplate>
+    <p class="allcenter">No task</p>
+  </ng-template>
+
+  <ng-template #ngNoEventsTemplate>
+    <p class="allcenter">No events</p>
+  </ng-template>
+
+</ion-content>

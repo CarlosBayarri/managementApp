@@ -8,9 +8,6 @@
 </tr>
 </table>
 
-
-## [Usage](https://iharsh234.github.io/WebApp/) 
-
 ### Development
 Want to contribute? Great!
 
@@ -26,9 +23,9 @@ To fix a bug or enhance an existing module, follow these steps:
 
 ### Bug / Feature Request
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/iharsh234/WebApp/issues/new) by including your search query and the expected result.
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/CarlosBayarri/managementApp/issues/new) by including your search query and the expected result.
 
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/CarlosBayarri/managementApp/issues/new). Please include sample queries and their corresponding results.
 
 
 ## Built with 
@@ -46,8 +43,8 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 [![Carlos Bayarri Cebrecos](https://avatars2.githubusercontent.com/u/31616221?s=400&u=f32637806040e934196bf7850b798a36867f5220&v=4)](https://github.com/CarlosBayarri)|.
 ---|---
-[Carlos Bayarri Cebrecos ](https://github.com/iharsh234)|.
+[Carlos Bayarri Cebrecos ](https://github.com/CarlosBayarri)|.
 
-## [License](https://github.com/CarlosBayarri/managementApp/LICENSE.mc)
+## [License](https://github.com/CarlosBayarri/managementApp/LICENSE.md)
 
-MIT © [Carlos Bayarri Cebrecos ](https://github.com/CarlosBayarri)
+MIT © [Carlos Bayarri Cebrecos ](https://github.com/CarlosBayarri/managementApp/blob/main/LICENSE)

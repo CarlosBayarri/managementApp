@@ -34,7 +34,6 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 ## To-do
 - Add chat implementation
-- Add note implementation
 - Event and task maps
 - Upload images and attach them to the task.
 - Add reminder. It has to be native function ...

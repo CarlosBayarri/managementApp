@@ -1,0 +1,33 @@
+
+.login-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .login-title {
+        width: 90%;
+        margin: 40% auto 0 auto;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    form {
+        margin: 20% auto auto auto;
+        width: 90%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+.login-page::after {
+    content: "";
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/portfolio-15d76.appspot.com/o/projects%2FGZSqlRSeODb6I67HKEig%2Fpexels-christina-morillo-1181244.jpg?alt=media&token=f62449b6-6547-49cf-826e-64800544f8ba');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }

@@ -1,20 +1,30 @@
 
 <ion-content>
-  <form>    
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
-    </ion-item> 
+  <div class="login-page">
 
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
+    <ion-item class="login-title" lines="full">
+      <ion-label style="text-align: center; text-transform: uppercase;">
+        Management App
+      </ion-label>
     </ion-item>
 
-    <ion-row>
-      <ion-col> 
-      <ion-button type="submit" (click)="signIn(email, password)" expand="block">Login</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+    <form>  
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" #email required></ion-input>
+      </ion-item> 
+  
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+  
+      <ion-row>
+        <ion-col> 
+        <ion-button type="submit" (click)="signIn(email, password)" expand="block">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+  
 </ion-content>

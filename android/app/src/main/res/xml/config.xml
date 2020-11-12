@@ -7,5 +7,9 @@
     <param name="onload" value="false"/>
   </feature>
 
+  <feature name="SQLitePlugin">
+    <param name="android-package" value="io.sqlc.SQLitePlugin"/>
+  </feature>
+
   
 </widget>

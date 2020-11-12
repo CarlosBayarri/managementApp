@@ -17,14 +17,14 @@ export class EditEventPage implements OnInit {
 
   saveEvent(event) {
     this.eventService.editEvent(event).then(res => {
-      this.nacVtrl.navigateRoot('Home');
+      this.nacVtrl.navigateRoot('tabs');
     })
   }
 
   removeEvent(event: Event) {
     this.eventService.removeEvent(event).then(() => {
       console.log('[REMOVED]');
-      this.nacVtrl.navigateRoot('Home');
+      this.nacVtrl.navigateRoot('tabs');
     })
   }
 

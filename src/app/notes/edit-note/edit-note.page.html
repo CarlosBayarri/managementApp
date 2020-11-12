@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{note?.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="settings" slot="start" (click)="menu.open('optionsNote')"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-router-outlet id="optionsNote"></ion-router-outlet>
+
+<ion-menu side="end" menuId="optionsNote" contentId="optionsNote">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="removeNote(note)">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        <ion-label>Remove</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content padding *ngIf="note">
+
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input type="text" placeholder="Title..." [(ngModel)]="note.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Description..." [(ngModel)]="note.description"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" clear (click)="saveNote(note)">Save</ion-button>
+
+</ion-content>
+

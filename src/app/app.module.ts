@@ -16,14 +16,16 @@ import { firebaseConfig } from './firebase';
 import { TaskService } from './services/task.service';
 import { EventService } from './services/event.service';
 import { AuthenticationService } from './services/authentication.service';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  AngularFireModule.initializeApp(firebaseConfig),
-  AngularFireAuthModule,
-  AngularFirestoreModule
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,

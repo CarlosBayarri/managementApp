@@ -1,10 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from '../interfaces/task.interface';
 import { TaskService } from '../services/task.service';
 import { Router } from '@angular/router';
 import { Event } from '../interfaces/event.interface';
 import { EventService } from '../services/event.service';
+import { Note } from '../interfaces/note.interface';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -16,6 +18,7 @@ export class ExploreContainerComponent implements OnInit {
 
   tasks$: Observable<Task[]>;
   events$: Observable<Event[]>;
+  notes$: Observable<Note[]>;
   slideOpts = {
     initialSlide: 0,
     slidesPerView: 1.25,
@@ -24,9 +27,8 @@ export class ExploreContainerComponent implements OnInit {
     scrollbar: false
   };
 
-  constructor(private taskService: TaskService, private eventService: EventService, private router: Router) { 
-    this.tasks$ = this.taskService.getTasks();
-    this.events$ = this.eventService.getEvents();
+  constructor(private taskService: TaskService, private eventService: EventService, private router: Router, private storageService: StorageService) { 
+
   }
 
   calculateDateToEnd(task) {
@@ -59,6 +61,15 @@ export class ExploreContainerComponent implements OnInit {
     this.eventService.currentEvent = event;
     this.router.navigate(['/edit-event'])
   }
-  ngOnInit() {}
+  goToNote(note) {
+    this.storageService.currentNote = note;
+    this.router.navigate(['/edit-note'])
+  }
+  ngOnInit() {
+    console.log('[INIT EXPLORE]');
+    this.tasks$ = this.taskService.getTasks();
+    this.events$ = this.eventService.getEvents();
+    this.notes$ = this.storageService.getNotes();
+  }
 
 }

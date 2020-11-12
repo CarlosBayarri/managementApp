@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let note of notes$ | async | slice:0:10" (click)="goToNote(note)">
+
+      <ion-item lines="none">
+        <ion-icon name="clipboard" slot="start"></ion-icon>
+        <ion-label>{{note.title}}</ion-label>
+      </ion-item>
+    
+      <ion-card-content style="text-align: left;">
+
+        <p>{{note.description}}</p>
+        
+      </ion-card-content>
+
+
+    </ion-card>
+
+</ion-content>

@@ -17,14 +17,14 @@ export class EditTaskPage implements OnInit {
   saveTask(task) {
     task.date_to_end = task.date_to_end.split('T')[0];
     this.taskService.editTask(task).then(res => {
-      this.nacVtrl.navigateRoot('Home');
+      this.nacVtrl.navigateRoot('tabs');
     })
   }
 
   removeTask(task: Task) {
     this.taskService.removeTask(task).then(() => {
       console.log('[REMOVED]');
-      this.nacVtrl.navigateRoot('Home');
+      this.nacVtrl.navigateRoot('tabs');
     })
   }
 

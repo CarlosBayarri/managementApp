@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Títle</ion-label>
+    <ion-input type="text" placeholder="Write the title here..." [(ngModel)]="note.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Write the description here..." [(ngModel)]="note.description"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="full" clear (click)="addNote(note)">Add</ion-button>
+
+</ion-content>

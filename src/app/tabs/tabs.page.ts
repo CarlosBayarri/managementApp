@@ -28,6 +28,12 @@ export class TabsPage {
           this.router.navigate(['/add-task'])
         }
       }, {
+        text: 'Note',
+        icon: 'clipboard',
+        handler: () => {
+          this.router.navigate(['/add-note'])
+        }
+      }, {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',

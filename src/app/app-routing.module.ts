@@ -38,6 +38,18 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'add-note',
+    loadChildren: () => import('./notes/add-note/add-note.module').then( m => m.AddNotePageModule)
+  },
+  {
+    path: 'edit-note',
+    loadChildren: () => import('./notes/edit-note/edit-note.module').then( m => m.EditNotePageModule)
+  },
+  {
+    path: 'view-note',
+    loadChildren: () => import('./notes/view-note/view-note.module').then( m => m.ViewNotePageModule)
   }
 ];
 @NgModule({

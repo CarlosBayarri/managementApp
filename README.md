@@ -1,12 +1,8 @@
-# ![Cover](https://firebasestorage.googleapis.com/v0/b/portfolio-15d76.appspot.com/o/projects%2FGZSqlRSeODb6I67HKEig%2FCBC%20-%20PORTFOLIO%20(3).jpg?alt=media&token=2c5fa578-4c78-4541-95d8-45bfb672a8c5)
+# ![Cover](https://github.com/CarlosBayarri/managementApp/blob/main/cover_managementApp.jpg)
 # Management App
-<table>
-<tr>
-<td>
-  This project is based on a mobile app to manage tasks and events, built with Ionic and Angular and deployed in Firebase.
-</td>
-</tr>
-</table>
+
+  This project is based on a mobile application to manage tasks and events, built with Ionic and Angular and implemented in Firebase. Use Authentication, Cloud Firestore, and Storage for images and documents.
+  This app is developed to show a CRUD with Ionnic and Firebase.
 
 ### Development
 Want to contribute? Great!
